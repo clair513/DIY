@@ -1,0 +1,2 @@
+# DIY
+This repository contains few randomly undertaken projects in Data Analytics &amp; Machine Learning domain. Intent is to explore few under-valued pre-created Python package/libraries as well as methodologies that can actually create a business impact. Mostly projects vary in content depth and if relevant for reference, each project is also associated with a descriptive run-through article on my Medium blog.
