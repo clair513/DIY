@@ -3,6 +3,7 @@ import argparse
 import numpy as np
 import cv2
 
+
 # Command line argument parser:
 parser = argparse.ArgumentParser(add_help=False)
 parser.add_argument('-i', '--image', required=True)
