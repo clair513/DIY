@@ -34,10 +34,5 @@ os.remove(filename)
 with open('pdf_output.txt', 'a') as f:
 	f.write(text)
 
-# Displaying Input & Output images:
-cv2.imshow('Input Image', img)
-cv2.imshow('Output Image', gray)
-cv2.waitKey(0)  #Enforcing manual closure
-
 #USAGE:
 #python ocr.py --image images/input_walmart.jpg
