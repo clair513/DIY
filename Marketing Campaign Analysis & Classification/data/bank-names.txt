@@ -1,27 +1,21 @@
-Citation Request:
-  This dataset is public available for research. The details are described in [Moro et al., 2011]. 
-  Please include this citation if you plan to use this database:
-
+**Citation:**
   [Moro et al., 2011] S. Moro, R. Laureano and P. Cortez. Using Data Mining for Bank Direct Marketing: An Application of the CRISP-DM Methodology. 
   In P. Novais et al. (Eds.), Proceedings of the European Simulation and Modelling Conference - ESM'2011, pp. 117-121, Guimarães, Portugal, October, 2011. EUROSIS.
 
-  Available at: [pdf] http://hdl.handle.net/1822/14838
-                [bib] http://www3.dsi.uminho.pt/pcortez/bib/2011-esm-1.txt
+* Title: (Portuguese) Bank Marketing Campaign
 
-1. Title: Bank Marketing
-
-2. Sources
+* Sources:
    Created by: Paulo Cortez (Univ. Minho) and Sérgio Moro (ISCTE-IUL) @ 2012
    
-3. Past Usage:
+* Past Usage:
 
-  The full dataset was described and analyzed in:
+  This full dataset was primarily described and analyzed by:
 
   S. Moro, R. Laureano and P. Cortez. Using Data Mining for Bank Direct Marketing: An Application of the CRISP-DM Methodology. 
   In P. Novais et al. (Eds.), Proceedings of the European Simulation and Modelling Conference - ESM'2011, pp. 117-121, Guimarães, 
   Portugal, October, 2011. EUROSIS.
 
-4. Relevant Information:
+* Relevant Information:
 
    The data is related with direct marketing campaigns of a Portuguese banking institution. 
    The marketing campaigns were based on phone calls. Often, more than one contact to the same client was required, 
@@ -34,13 +28,11 @@ Citation Request:
 
    The classification goal is to predict if the client will subscribe a term deposit (variable y).
 
-5. Number of Instances: 45211 for bank-full.csv (4521 for bank.csv)
+* Number of Instances: 45211 for bank-full.csv (4521 for bank.csv)
 
-6. Number of Attributes: 16 + output attribute.
+* Number of Attributes: 16 + output attribute.
 
-7. Attribute information:
-
-   For more information, read [Moro et al., 2011].
+* Attribute information:
 
    Input variables:
    # bank client data:
@@ -67,4 +59,4 @@ Citation Request:
   Output variable (desired target):
   17 - y - has the client subscribed a term deposit? (binary: "yes","no")
 
-8. Missing Attribute Values: None
+* Missing Attribute Values: None
