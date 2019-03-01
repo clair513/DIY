@@ -1,0 +1,2 @@
+Data Source 1: http://ai.stanford.edu/~amaas/data/sentiment/
+Data Source 2: https://www.kaggle.com/utathya/imdb-review-dataset
