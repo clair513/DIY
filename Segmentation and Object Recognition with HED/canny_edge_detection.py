@@ -26,13 +26,13 @@ class CropLayer(object):
 
 cv2.dnn_registerLayer('Crop', CropLayer)
 
-img = cv2.imread('/home/alok/Desktop/hed/images/Input_kiara.jpg')
+img = cv2.imread('~/Desktop/hed/images/Input_kiara.jpg')
 H, W = img.shape[:2]
 
 gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 blurred = cv2.GaussianBlur(gray, (5, 5), 0)
 canny = cv2.Canny(blurred, 30, 150)
 
-cv2.imwrite('/home/alok/Desktop/hed/images/Output_cannyImage_kiara.jpg', canny)
+cv2.imwrite('~/Desktop/hed/images/Output_cannyImage_kiara.jpg', canny)
 cv2.imshow('Canny Output', canny)
 cv2.waitKey(0)
