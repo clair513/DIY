@@ -31,7 +31,7 @@ class CropLayer(object):
 net = cv2.dnn.readNetFromCaffe(protoFile, weightsFile)
 cv2.dnn_registerLayer('Crop', CropLayer)
 
-img = cv2.imread('/home/alok/Desktop/hed/images/Input_cr7.jpg')
+img = cv2.imread('~/Desktop/hed/images/Input_cr7.jpg')
 H, W = img.shape[:2]
 
 img_blob = cv2.dnn.blobFromImage(img, scalefactor=1.0, size=(W, H), mean=(104.00698793, 116.66876762, 122.67891434), swapRB=False, crop=False)
