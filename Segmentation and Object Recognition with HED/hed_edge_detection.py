@@ -2,11 +2,8 @@
 import cv2
 
 # PATH to pre-trained model files:
-protoFile = '/home/alok/Desktop/hed/model/deploy.prototxt'
-weightsFile = '/home/alok/Desktop/hed/model/hed_pretrained.caffemodel'
-
-img = cv2.imread('/home/alok/Desktop/hed/images/Input_cr7.jpg')
-H, W = img.shape[:2]
+protoFile = '~/Desktop/hed/model/deploy.prototxt'
+weightsFile = '~/Desktop/hed/model/hed_pretrained.caffemodel'
 
 class CropLayer(object):
     def __init__(self, params, blobs):
@@ -32,12 +29,17 @@ class CropLayer(object):
 
 
 net = cv2.dnn.readNetFromCaffe(protoFile, weightsFile)
+cv2.dnn_registerLayer('Crop', CropLayer)
+
+img = cv2.imread('/home/alok/Desktop/hed/images/Input_cr7.jpg')
+H, W = img.shape[:2]
+
 img_blob = cv2.dnn.blobFromImage(img, scalefactor=1.0, size=(W, H), mean=(104.00698793, 116.66876762, 122.67891434), swapRB=False, crop=False)
 net.setInput(img_blob)
 out = net.forward()
 out = cv2.resize(out[0, 0], (W, H))
 out = (255 * out).astype('uint8')
 
-cv2.imwrite('/home/alok/Desktop/hed/images/Output_hedImage_cr7.jpg', out)
-cv2.imshow('HED Output', out)
+cv2.imwrite('~/Desktop/hed/images/Output_hedImage_cr7.jpg', out)
+cv2.imshow('HED Image Output', out)
 cv2.waitKey(0)
