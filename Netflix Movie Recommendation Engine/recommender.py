@@ -103,3 +103,48 @@ def get_avg_ratings(sparse_matrix, if_user):
     rows,cols = sparse_matrix.shape
     avg_ratings = {i: sum_of_ratings[i]/num_of_ratings[i] for i in range(rows if if_user else cols) if num_of_ratings[i]!=0}
     return avg_ratings
+
+# Ratings based on Global Average, per User & per Movie:
+global_avg_rating = training_sparse_data.sum()/training_sparse_data.count_nonzero()
+user_avg_rating = get_avg_ratings(training_sparse_data, True)
+movie_avg_rating = get_avg_ratings(training_sparse_data, False)
+print(f'Global Average Rating is {global_avg_rating}.\nAverage rating of user 50 is {user_avg_rating[50]}.\nAverage rating of movie 3000 is {movie_avg_rating[3000]}.')
+
+
+# Computing User-User Similarity Matrix (Computationally exhaustive):
+# Thus with 'top' param value, limiting number of similar users [Default being 100].
+def user_user_similarity(sparse_matrix, top=100):
+    row_index, col_index = sparse_matrix.nonzero()
+    rows = np.unique(row_index)
+    similarity_matrix = np.zeros(61700).reshape(617,100)  #617*100 = 61700
+    for i in rows[:top]:
+        similarity = cosine_similarity(sparse_matrix.getrow(i), sparse_matrix).ravel()
+        similar_indices = similarity.argsort()[-top:]
+        similarity_matrix[i] = similarity[similar_indices]
+    return similarity_matrix
+
+print(f'Similarity Matrix for Top-100 Users is: \n{user_user_similarity(training_sparse_data)}.')
+
+
+# Computing & Storing Movie-Movie Similarity Matrix:
+if os.path.isfile('./data/m_m_similarity.npz'):
+    m_m_similarity = sparse.load_npz('./data/m_m_similarity.npz')
+    print(f'Dimension of Matrix: {m_m_similarity.shape}')
+else:
+    m_m_similarity = cosine_similarity(training_sparse_data.T, dense_output=False)
+    print(f'Dimension of Matrix: {m_m_similarity.shape}')
+    sparse.save_npz('./data/m_m_similarity.npz', m_m_similarity)
+
+# Checking Top-5 most similar & All similar movies to any random movie:
+similar_movies = dict()
+movie_id = np.unique(m_m_similarity.nonzero())
+for i in movie_id:
+    similar = np.argsort(-m_m_similarity[i].toarray().ravel())[1:100]
+    similar_movies[i] = similar
+
+movie_titles = pd.read_csv('./data/movie_titles.csv',sep=',', header=None, names=['MovieID','Year_of_Release','Movie_Title'], index_col='MovieID', encoding='iso8859_2')
+
+movie_id = 17765      #Godzilla's Revenge
+movie_titles.loc[similar_movies[movie_id][:5]]
+all_sim_movies = sorted(m_m_similarity[movie_id].toarray().ravel(), reverse=True)[1:]
+print(all_sim_movies[:26])    #Top-25 similar movies
