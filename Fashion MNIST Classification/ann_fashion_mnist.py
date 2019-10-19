@@ -1,12 +1,8 @@
 # -*- coding: utf-8 -*-
 """
-
 ANN Implementation on Fashion MNIST [ Source: Kaggle (https://www.kaggle.com/zalando-research/fashionmnist) ] using TensorFlow 2.0.0 on CPU.
-
 Training dataset contains 60,000 image/records & Testing dataset contains additional 10,000 records. Dataset has 10 different label/classes of 28*28 images for Classification.
-
 Model attains around 94.13% accuracy on Training dataset, whereas succumbs to 89.87% accuracy on Testing dataset.
-
 """
 
 # Importing external dependencies:
