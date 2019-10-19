@@ -53,4 +53,8 @@ test_loss, test_accuracy = ann.evaluate(X_test, y_test)
 print(f"Test data Accuracy: {test_accuracy}")
 
 
-# Saving our Model architecture & weights:
+# Saving our Model architecture & network weights:
+with open('fashion_mnist_ann.json', 'w') as json_file:
+    json_file.write(ann.to_json())
+
+ann.save_weights('fashion_mnist_ann_weights.h5')
