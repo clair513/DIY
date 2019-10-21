@@ -1,12 +1,8 @@
 # -*- coding: utf-8 -*-
 """
-
-CNN Implementation on CIFAR-10 [ Source: Kaggle (https://www.cs.toronto.edu/~kriz/cifar.html) ] dataset using TensorFlow 2.0.0 on CPU.
-
+CNN Implementation on CIFAR-10 [ Source: Kaggle (https://www.cs.toronto.edu/~kriz/cifar.html) ] dataset using TensorFlow 2.0.0 Sequential API on CPU.
 Training dataset contains 50,000 image/records & Testing dataset contains additional 10,000 records. Dataset has 10 different label/classes of 32*32*3 4-dimensional color images for Classification (Object Recognition).
-
 Model attains around 94.13% accuracy on Training dataset, whereas succumbs to 89.87% accuracy on Testing dataset.
-
 """
 
 # Importing external dependencies:
