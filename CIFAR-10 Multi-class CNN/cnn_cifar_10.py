@@ -52,7 +52,7 @@ print(cnn.summary())
 
 
 # Training & Evaluation of our model:
-cnn.fit(X_train, y_train, epochs=50, batch_size=64)
+cnn.fit(X_train, y_train, epochs=50, batch_size=64)  #'batch_size' not mandatory.
 test_loss, test_accuracy = cnn.evaluate(X_test, y_test)
 print(f"Test data Accuracy: {test_accuracy}")
 
