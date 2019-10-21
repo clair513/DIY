@@ -29,7 +29,7 @@ cnn = tf.keras.models.Sequential()  #Initializing our model.
 cnn.add(tf.keras.layers.Conv2D(filters=32, kernel_size=3, padding='same', activation='relu', input_shape=[32,32,3]))  #First Layer
 
 cnn.add(tf.keras.layers.Conv2D(filters=32, kernel_size=3, padding='same', activation='relu'))  #Second layer
-cnn.add(tf.keras.layers.MaxPool2D(pool_size=2, strides=2, padding='valid'))  #Second layer image size reduction retaining only critical features, hence 'valid' padding.
+cnn.add(tf.keras.layers.MaxPool2D(pool_size=2, strides=2, padding='valid'))  #Second layer image size reduction retaining ONLY critical features, hence 'valid' padding. Alternate is 'AveragePool2D'.
 
 cnn.add(tf.keras.layers.Conv2D(filters=64, kernel_size=3, padding='same', activation='relu'))  #Third layer
 
