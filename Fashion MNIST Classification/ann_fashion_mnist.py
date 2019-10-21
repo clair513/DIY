@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 ANN Implementation on Fashion MNIST [ Source: Kaggle (https://www.kaggle.com/zalando-research/fashionmnist) ] using TensorFlow 2.0.0 on CPU.
-Training dataset contains 60,000 image/records & Testing dataset contains additional 10,000 records. Dataset has 10 different label/classes of 28*28 images for Classification.
+Training dataset contains 60,000 image/records & Testing dataset contains additional 10,000 records. Dataset has 10 different label/classes of 28*28 grayscale images for Classification.
 Model attains around 94.13% accuracy on Training dataset, whereas succumbs to 89.87% accuracy on Testing dataset.
 """
 
@@ -15,11 +15,11 @@ from tensorflow.keras.datasets import fashion_mnist
 (X_train, y_train), (X_test, y_test) = fashion_mnist.load_data()
 
 
-# Pre-processing training data (Normalizing to [0,1] by dividing by max pixels[255] + Converting to Vector format by reshaping) for faster processing:
+# Pre-processing training data (Normalizing to [0,1] by dividing by max pixels[255] + Vector conversion by reshaping) for faster processing:
 X_train = X_train/255.0
 X_test = X_test/255.0
 
-X_train = X_train.reshape(-1, 28*28)  #Images in our data are in 28*28 shape
+X_train = X_train.reshape(-1, 28*28)  #Grayscale images in our data are in 28*28 shape
 X_test = X_test.reshape(-1, 28*28)
 
 
@@ -36,7 +36,7 @@ ann.add(tf.keras.layers.Dense(units=64, activation='relu'))  #Third layer
 
 ann.add(tf.keras.layers.Dense(units=10, activation='softmax'))  #Final layer with units representing our num of label/classes to be predicted
 
-ann.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics=['sparse_categorical_accuracy'])  #Suitable for 2+ classes
+ann.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics=['sparse_categorical_accuracy'])  #Chosen 'loss' function suitable only for 2+ classes
 
 
 # Overview of model architecture:
