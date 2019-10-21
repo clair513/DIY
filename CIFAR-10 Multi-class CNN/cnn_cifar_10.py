@@ -3,6 +3,8 @@
 CNN Implementation on CIFAR-10 [ Source: Kaggle (https://www.cs.toronto.edu/~kriz/cifar.html) ] dataset using TensorFlow 2.0.0 Sequential API on CPU.
 Training dataset contains 50,000 image/records & Testing dataset contains additional 10,000 records. Dataset has 10 different label/classes of 32*32*3 4-dimensional color images for Classification (Object Recognition).
 Model attains around 84.13% accuracy on Training dataset, whereas succumbs to 73.32% accuracy on Testing dataset.
+
+External Help, if reqd: https://www.pyimagesearch.com/2019/10/21/keras-vs-tf-keras-whats-the-difference-in-tensorflow-2-0/ OR official https://www.tensorflow.org/api_docs/python/tf/keras/layers
 """
 
 # Importing external dependencies:
