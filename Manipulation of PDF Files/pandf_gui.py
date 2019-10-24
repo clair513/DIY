@@ -14,7 +14,7 @@ root = Tk()
 
 # Sample DataFrame:
 t = np.arange(0.0,3.0,0.01)
-data = pd.DataFrame({'t':t, 's':np.sin(2*np.pi*t)})
+data = pd.DataFrame({'Value':t, 'Sin Value':np.sin(2*np.pi*t)})
 data['Choices'] = np.random.choice(['Alpha','Gamma','Beta','Delta'], len(data))
 
 
