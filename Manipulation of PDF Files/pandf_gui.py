@@ -5,10 +5,6 @@ from tkinter.ttk import *
 
 root = Tk()
 
-# Publicly available sample DataFrame:
-import seaborn as sns
-tips = sns.load_dataset('tips')
-
 
 # To visualize input DataFrame:
 def generate_plot(gui_root, df, x_axis, y_axis=None,
@@ -19,8 +15,8 @@ def generate_plot(gui_root, df, x_axis, y_axis=None,
     DESCRIPTION: Reads input Pandas DataFrame and returns a plot based on selected parameters.
 
     PARAMETERS:
-        > gui_root : [default None] Accepts Tkinter application base class (Tk) initialized variable/instance.
-        > df : [default None] Accepts Pandas DataFrame.
+        > gui_root : [Required] Accepts Tkinter application base class (Tk) initialized variable/instance.
+        > df : [Required] Accepts Pandas DataFrame.
     """
 
 
